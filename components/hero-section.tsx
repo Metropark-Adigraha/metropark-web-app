@@ -10,14 +10,15 @@ export function HeroSection() {
       <div className="relative container px-4 mx-auto text-elipse text-white">
         <FadeIn>
           <AnimatedText
-            text="Discover Timeless Elegance in Classic Homes"
+            text="Selamat Datang di Metro Park Adigraha"
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
           />
         </FadeIn>
         <FadeIn delay={0.2}>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-200">
-            Experience the charm of vintage properties with modern convenience,
-            all at competitive prices.
+            Temukan rumah ideal Anda di lokasi strategis dengan suasana sejuk,
+            spesifikasi berkualitas, dan harga terjangkau. Hidup nyaman dan
+            modern menanti Anda di sini.
           </p>
         </FadeIn>
       </div>

@@ -54,7 +54,7 @@ function PropertyCard({ property }: { property: Property }) {
 
   return (
     <motion.div
-      className="group relative bg-card rounded-lg overflow-hidden"
+      className="group relative bg-card rounded-lg overflow-hidden shadow-lg"
       whileHover={{ y: -8 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
@@ -75,7 +75,7 @@ function PropertyCard({ property }: { property: Property }) {
             className="object-cover"
           />
           {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-satin-gold-700/80 to-transparent" />
         </motion.div>
 
         {/* Quick Action Buttons */}
@@ -87,7 +87,7 @@ function PropertyCard({ property }: { property: Property }) {
             onClick={() => setIsLiked(!isLiked)}
             className={cn(
               "p-2 rounded-full backdrop-blur-md transition-colors",
-              isLiked ? "bg-red-500/80 text-white" : "bg-white/20 text-white hover:bg-white/40"
+              isLiked ? "bg-satin-gold-500 text-white" : "bg-white/20 text-white hover:bg-satin-gold-300"
             )}
           >
             <Heart className={cn("w-5 h-5", isLiked && "fill-current")} />
@@ -96,7 +96,7 @@ function PropertyCard({ property }: { property: Property }) {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="p-2 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-white/40 transition-colors"
+            className="p-2 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-satin-gold-300 transition-colors"
           >
             <Share2 className="w-5 h-5" />
           </motion.button>
@@ -106,13 +106,13 @@ function PropertyCard({ property }: { property: Property }) {
       {/* Content */}
       <div className="p-6">
         <div className="mb-4">
-          <h3 className="text-2xl font-semibold mb-2 group-hover:text-primary transition-colors">
+          <h3 className="text-2xl text-satin-gold-300 font-semibold mb-2 group-hover:text-satin-gold-500 transition-colors">
             {property.title}
           </h3>
-          <p className="text-3xl font-bold text-primary">{property.price}</p>
+          <p className="text-3xl font-bold text-satin-gold-500">{property.price}</p>
         </div>
 
-        <div className="space-y-3 text-muted-foreground">
+        <div className="space-y-3 text-satin-gold-300">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -149,7 +149,7 @@ function PropertyCard({ property }: { property: Property }) {
           transition={{ delay: 0.4 }}
           className="mt-6"
         >
-          <Button className="w-full group" variant="outline">
+          <Button className="w-full group" style={{ borderColor: '#C89E30', color: '#C89E30' }}>
             View Details
             <ExternalLink className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
           </Button>
@@ -157,17 +157,17 @@ function PropertyCard({ property }: { property: Property }) {
       </div>
 
       {/* Interactive Corner Fold Effect */}
-      <div className="absolute top-0 right-0 w-16 h-16 bg-primary/10 transform rotate-45 translate-x-8 -translate-y-8 group-hover:bg-primary/20 transition-colors" />
+      <div className="absolute top-0 right-0 w-16 h-16 bg-satin-gold-500/10 transform rotate-45 translate-x-8 -translate-y-8 group-hover:bg-satin-gold-500/20 transition-colors" />
     </motion.div>
   );
 }
 
 export function FeaturedProperties() {
   return (
-    <section className="py-24 bg-secondary">
+    <section className="py-24 bg-[color:var(--satin-gold-100)]">
       <div className="container px-4 mx-auto">
         <FadeIn>
-          <h2 className="text-4xl font-bold text-center mb-12">Featured Properties</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-satin-gold-500">Featured Properties</h2>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {properties.map((property, index) => (

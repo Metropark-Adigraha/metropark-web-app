@@ -1,13 +1,17 @@
 import { HeroSection } from "@/components/hero-section";
-import { Navbar } from "@/components/navbar";
 import { FeaturedProperties } from "@/components/featured-properties";
+import { Footer } from "@/components/footer";
+import MapPage from "@/components/map-container";
+import FloatingButton from "@/components/floating-button";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main>
-      <Navbar />
       <HeroSection />
       <FeaturedProperties />
+      <MapPage/>
+      <Footer/>
+      <FloatingButton/>
     </main>
   );
 }
