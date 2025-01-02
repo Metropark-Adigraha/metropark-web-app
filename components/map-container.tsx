@@ -13,7 +13,7 @@ const MapPage: React.FC = () => {
           animate={{ opacity: 1, y: 0, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <h2 className="text-4xl font-bold text-center mb-12 text-satin-gold-500">
+          <h2 className="text-4xl font-bold text-center mb-12 text-satin-gold-900">
             Our Location
           </h2>
         </motion.div>
@@ -24,10 +24,10 @@ const MapPage: React.FC = () => {
         >
           <div className="w-full max-w-4xl mx-auto rounded-lg shadow-lg overflow-hidden">
             <div className="p-6">
-              <h3 className="text-2xl md:text-3xl font-bold text-center text-satin-gold-600">
+              <h3 className="text-2xl md:text-3xl font-bold text-center text-satin-gold-800">
                 Perumahan Metro Park Adigraha
               </h3>
-              <p className="text-center mt-2 text-satin-gold-700">
+              <p className="text-center mt-2 font-semibold text-satin-gold-700">
                 Explore our prime location in the heart of the city
               </p>
             </div>
@@ -46,8 +46,7 @@ const MapPage: React.FC = () => {
                   <div className="flex items-start gap-2 text-[color:var(--satin-gold-800)]">
                     <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-[color:var(--satin-gold-600)]" />
                     <span className="text-sm">
-                      Jl. Raya Karanglo No.66, Karanglo, Banjararum, Kec. Singosari,
-                      Kabupaten Malang, Jawa Timur 65153
+                    Jl. Bandulan Baru, Bandulan, Kec. Sukun, Kota Malang, Jawa Timur 65146
                     </span>
                   </div>
                 </div>

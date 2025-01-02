@@ -19,9 +19,9 @@ export default function FloatingButton() {
   };
 
   const handleWhatsApp = () => {
-    const phoneNumber = "1234567890"; // Replace with the desired phone number
+    const phoneNumber = "6281235828179"; // Replace with the desired phone number
     const message = encodeURIComponent(
-      "Hello! I want to reach out to you via WhatsApp."
+      "Hello! Saya tertarik untuk info lebih lanjut tentang perumahan ini"
     );
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappURL, "_blank");

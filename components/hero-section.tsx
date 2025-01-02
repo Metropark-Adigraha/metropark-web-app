@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/ui/fade-in";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center">
+    <section className="relative min-h-screen flex items-center justify-center bg-[url('https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735783627/3d548644-c8ad-11ef-99f0-0242ac110002_2_iduroh.jpg?_s=public-apps&q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center">
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative container px-4 mx-auto text-elipse text-white">
         <FadeIn>

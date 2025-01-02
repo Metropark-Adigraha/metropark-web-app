@@ -20,11 +20,12 @@ export type PropertyImage = {
   
   export type PropertyDetails = {
     id: string
-    type: string
-    title: string
     description: string
+    title: string
     features: string[]
     specifications: {
+      type: string
+      area: string
       size: string
       bedrooms: number
       bathrooms: number
@@ -32,7 +33,8 @@ export type PropertyImage = {
     }
     images: PropertyImage[]
     floorPlan: string
-    price: number
+    price: string
+    slug: string
   }
   
   
@@ -41,6 +43,8 @@ export type PropertyImage = {
     bedrooms: number;
     bathrooms: number;
     carport: boolean;
+    area: string
+    type: string
   }
   
   export interface PropertyDetail {

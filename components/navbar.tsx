@@ -2,9 +2,28 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, Menu, X } from "lucide-react";
+import { Home, Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const properties = [
+  {
+    id: "1",
+    title: "Type 36/60",
+    slug: "type-36-60",
+  },
+  {
+    id: "2",
+    title: "Type 63/72",
+    slug: "type-63-72",
+  },
+];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,10 +40,9 @@ export function Navbar() {
 
   const links = [
     { label: "Home", href: "/" },
-    { label: "Properties", href: "/residence-type" },
-    { label: "Payment Flow", href: "/payment-flow" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Alur Pembayaran", href: "/payment-flow" },
+    { label: "Tentang", href: "/about" },
+    { label: "Hubungi Kami", href: "/contact" },
   ];
 
   return (
@@ -53,6 +71,44 @@ export function Navbar() {
               </Button>
             </Link>
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <div className="relative">
+                <Link href="/residence-type" passHref>
+                  <Button
+                    variant="ghost"
+                    className="text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20 w-[150px] justify-between"
+                  >
+                    Properti
+                    <ChevronDown className="h-4 w-4 ml-2" />
+                  </Button>
+                </Link>
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent 
+              className="w-[150px] bg-satin-gold-700 backdrop-blur-md border-none" 
+              align="end"
+            >
+              {properties.map((property) => (
+                <DropdownMenuItem key={property.id} asChild>
+                  <Link 
+                    href={`/residence-type/${property.slug}`} 
+                    className="w-full text-satin-gold-200 hover:text-satin-gold-100 hover:bg-satin-gold-600/50 focus:bg-satin-gold-600/50 focus:text-satin-gold-100"
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="w-full truncate"
+                    >
+                      {property.title}
+                    </motion.div>
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Mobile Menu Button */}
@@ -89,6 +145,44 @@ export function Navbar() {
                     </Button>
                   </Link>
                 ))}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <div className="relative w-full">
+                      <Link href="/residence-type" passHref>
+                        <Button
+                          variant="ghost"
+                          className="w-full justify-between text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20"
+                        >
+                          Properti
+                          <ChevronDown className="h-4 w-4 ml-2" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent 
+                    className="w-full bg-satin-gold-700 backdrop-blur-md border-none" 
+                    align="start"
+                  >
+                    {properties.map((property) => (
+                      <DropdownMenuItem key={property.id} asChild>
+                        <Link 
+                          href={`/residence-type/${property.slug}`} 
+                          className="w-full text-satin-gold-200 hover:text-satin-gold-100 hover:bg-satin-gold-600/50 focus:bg-satin-gold-600/50 focus:text-satin-gold-100"
+                        >
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="w-full truncate"
+                          >
+                            {property.title}
+                          </motion.div>
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </motion.div>
           )}
@@ -97,3 +191,4 @@ export function Navbar() {
     </header>
   );
 }
+

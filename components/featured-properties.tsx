@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Building2, MapPin, Ruler, Heart, Share2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
-import { cn } from "@/lib/utils";
 
 interface Property {
   id: number;
@@ -16,35 +15,29 @@ interface Property {
   image: string;
   area: string;
   type: string;
+  slug: string;
 }
 
 const properties = [
   {
     id: 1,
-    title: "Victorian Mansion",
-    location: "Historic District, Downtown",
-    price: "$850,000",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
-    area: "4,500 sq ft",
+    title: "Affordable Living Space",
+    location: "Jl. Bandulan Baru, Bandulan, Kec. Sukun, Kota Malang, Jawa Timur",
+    price: "Rp 300 Jt-an",
+    image: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788306/type36-fasade_kjhfya.jpg?_s=public-apps",
+    area: "36/60 m²",
     type: "Single Family",
+    slug: "type-36-60"
   },
   {
     id: 2,
-    title: "Colonial Estate",
-    location: "Heritage Park Area",
-    price: "$720,000",
-    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop",
-    area: "3,800 sq ft",
-    type: "Estate",
-  },
-  {
-    id: 3,
-    title: "Tudor Revival",
-    location: "Woodland Heights",
-    price: "$695,000",
-    image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2065&auto=format&fit=crop",
-    area: "3,200 sq ft",
-    type: "Single Family",
+    title: "Luxurious Sanctuary",
+    location: "Jl. Bandulan Baru, Bandulan, Kec. Sukun, Kota Malang, Jawa Timur 65146",
+    price: "Rp 600 Jt-an",
+    image: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788294/fasadet63_rkuwum.jpg?_s=public-apps",
+    area: "63/72 m²",
+    type: "Modern Residence",
+    slug: "type-63-72"
   },
 ];
 
@@ -54,13 +47,13 @@ function PropertyCard({ property }: { property: Property }) {
 
   return (
     <motion.div
-      className="group relative bg-card rounded-lg overflow-hidden shadow-lg"
+      className="group relative bg-satin-gold-900 rounded-lg overflow-hidden shadow-lg"
       whileHover={{ y: -8 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
       {/* Image Container with Parallax Effect */}
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-72 overflow-hidden">
         <motion.div
           className="relative w-full h-full"
           animate={{
@@ -75,44 +68,20 @@ function PropertyCard({ property }: { property: Property }) {
             className="object-cover"
           />
           {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-satin-gold-700/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-satin-gold-800/80 to-transparent" />
         </motion.div>
-
-        {/* Quick Action Buttons */}
-        <div className="absolute top-4 right-4 flex gap-2">
-          <motion.button
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            onClick={() => setIsLiked(!isLiked)}
-            className={cn(
-              "p-2 rounded-full backdrop-blur-md transition-colors",
-              isLiked ? "bg-satin-gold-500 text-white" : "bg-white/20 text-white hover:bg-satin-gold-300"
-            )}
-          >
-            <Heart className={cn("w-5 h-5", isLiked && "fill-current")} />
-          </motion.button>
-          <motion.button
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="p-2 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-satin-gold-300 transition-colors"
-          >
-            <Share2 className="w-5 h-5" />
-          </motion.button>
-        </div>
       </div>
 
       {/* Content */}
       <div className="p-6">
         <div className="mb-4">
-          <h3 className="text-2xl text-satin-gold-300 font-semibold mb-2 group-hover:text-satin-gold-500 transition-colors">
+          <h3 className="text-2xl text-satin-gold-200 font-bold mb-2 group-hover:text-satin-gold-600 transition-colors">
             {property.title}
           </h3>
-          <p className="text-3xl font-bold text-satin-gold-500">{property.price}</p>
+          <p className="text-3xl font-bold text-satin-gold-500 group-hover:text-satin-gold-600">{property.price}</p>
         </div>
 
-        <div className="space-y-3 text-satin-gold-300">
+        <div className="space-y-3 text-satin-gold-400">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -120,7 +89,7 @@ function PropertyCard({ property }: { property: Property }) {
             className="flex items-center gap-2"
           >
             <MapPin className="w-4 h-4" />
-            <span>{property.location}</span>
+            <span className="font-medium">{property.location}</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -129,7 +98,7 @@ function PropertyCard({ property }: { property: Property }) {
             className="flex items-center gap-2"
           >
             <Ruler className="w-4 h-4" />
-            <span>{property.area}</span>
+            <span className="font-medium">{property.area}</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -138,7 +107,7 @@ function PropertyCard({ property }: { property: Property }) {
             className="flex items-center gap-2"
           >
             <Building2 className="w-4 h-4" />
-            <span>{property.type}</span>
+            <span className="font-medium">{property.type}</span>
           </motion.div>
         </div>
 
@@ -167,9 +136,9 @@ export function FeaturedProperties() {
     <section className="py-24 bg-[color:var(--satin-gold-100)]">
       <div className="container px-4 mx-auto">
         <FadeIn>
-          <h2 className="text-4xl font-bold text-center mb-12 text-satin-gold-500">Featured Properties</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-satin-gold-900">Featured Properties</h2>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
           {properties.map((property, index) => (
             <FadeIn key={property.id} delay={index * 0.2}>
               <PropertyCard property={property} />

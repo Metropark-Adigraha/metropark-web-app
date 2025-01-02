@@ -1,6 +1,6 @@
 "use client";
 
-import { Bath, BedDouble, Car, Home } from 'lucide-react';
+import { Bath, BedDouble, Car, Home, Ruler, Building } from 'lucide-react';
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { PropertyDetails } from "@/lib/types";
@@ -23,13 +23,6 @@ const item = {
 };
 
 export default function PropertyDetails({ property }: PropertyDetailsProps) {
-  const formatPrice = (price: number) =>
-    new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      minimumFractionDigits: 0,
-    }).format(price);
-
   return (
     <motion.div
       variants={container}
@@ -49,7 +42,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
             variants={item}
             className="text-3xl font-bold text-satin-gold-900"
           >
-            {formatPrice(property.price)}
+            {property.price}
           </motion.p>
         </motion.div>
 
@@ -57,7 +50,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
           <Card className="border-2 border-satin-gold-200/20 bg-satin-gold-800 backdrop-blur-sm shadow-lg">
             <CardHeader>
               <CardTitle className="text-satin-gold-100 text-xl font-bold">
-                Specifications
+                Spesifikasi
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -67,35 +60,55 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
                 animate="show"
                 className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8"
               >
-                {/* Size */}
+                {/* Ukuran Tanah */}
                 <motion.div variants={item} className="flex items-center gap-3">
                   <div className="flex items-center justify-center h-10 w-10">
                     <Home className="h-6 w-6 text-satin-gold-400" />
                   </div>
                   <span className="text-satin-gold-100 text-sm sm:text-base">
-                    <strong>Size:</strong> {property.specifications.size}
+                    <strong>Ukuran Tanah:</strong> {property.specifications.size}
                   </span>
                 </motion.div>
 
-                {/* Bedrooms */}
+                {/* Luas (Ukuran Rumah) */}
+                <motion.div variants={item} className="flex items-center gap-3">
+                  <div className="flex items-center justify-center h-10 w-10">
+                    <Ruler className="h-6 w-6 text-satin-gold-400" />
+                  </div>
+                  <span className="text-satin-gold-100 text-sm sm:text-base">
+                    <strong>Ukuran Rumah:</strong> {property.specifications.area}
+                  </span>
+                </motion.div>
+
+                {/* Tipe */}
+                <motion.div variants={item} className="flex items-center gap-3">
+                  <div className="flex items-center justify-center h-10 w-10">
+                    <Building className="h-6 w-6 text-satin-gold-400" />
+                  </div>
+                  <span className="text-satin-gold-100 text-sm sm:text-base">
+                    <strong>Tipe:</strong> {property.specifications.type}
+                  </span>
+                </motion.div>
+
+                {/* Kamar Tidur */}
                 <motion.div variants={item} className="flex items-center gap-3">
                   <div className="flex items-center justify-center h-10 w-10">
                     <BedDouble className="h-6 w-6 text-satin-gold-400" />
                   </div>
                   <span className="text-satin-gold-100 text-sm sm:text-base">
-                    <strong>Bedrooms:</strong> {property.specifications.bedrooms}{" "}
-                    Room
+                    <strong>Kamar Tidur:</strong> {property.specifications.bedrooms}{" "}
+                    Kamar
                   </span>
                 </motion.div>
 
-                {/* Bathrooms */}
+                {/* Kamar Mandi */}
                 <motion.div variants={item} className="flex items-center gap-3">
                   <div className="flex items-center justify-center h-10 w-10">
                     <Bath className="h-6 w-6 text-satin-gold-400" />
                   </div>
                   <span className="text-satin-gold-100 text-sm sm:text-base">
-                    <strong>Bathrooms:</strong>{" "}
-                    {property.specifications.bathrooms} Room
+                    <strong>Kamar Mandi:</strong>{" "}
+                    {property.specifications.bathrooms} Kamar
                   </span>
                 </motion.div>
 
@@ -107,8 +120,8 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
                   <span className="text-satin-gold-100 text-sm sm:text-base">
                     <strong>Carport:</strong>{" "}
                     {property.specifications.carport
-                      ? "Available"
-                      : "Not Available"}
+                      ? "Tersedia"
+                      : "Tidak Tersedia"}
                   </span>
                 </motion.div>
               </motion.div>
@@ -121,7 +134,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
             variants={item}
             className="text-2xl font-semibold text-satin-gold-100"
           >
-            Description
+            Deskripsi
           </motion.h2>
           <motion.p 
             variants={item}
@@ -137,7 +150,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
           <Card className="border-2 border-satin-gold-200/20 bg-satin-gold-800 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-satin-gold-100 font-bold">
-                Features
+                Fitur
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -168,7 +181,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
             variants={item}
             className="text-2xl font-semibold text-satin-gold-100"
           >
-            Floor Plan
+            Denah Lantai
           </motion.h2>
           <motion.div variants={item}>
             <Card className="overflow-hidden border-2 border-satin-gold-200/20 bg-satin-gold-900/50 backdrop-blur-sm">
@@ -176,7 +189,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
                 <div className="relative aspect-[2/1.7] w-full">
                   <img
                     src={property.floorPlan}
-                    alt="Floor plan"
+                    alt="Denah lantai"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
@@ -188,4 +201,3 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
     </motion.div>
   );
 }
-
