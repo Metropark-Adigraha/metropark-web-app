@@ -12,7 +12,7 @@ async function getPropertyData(slug: string): Promise<PropertyDetails | null> {
   const mockPropertiesData: PropertyDetails[] = [
     {
       id: "type-36-60",
-      title: "Minimalist and economic",
+      title: "Minimalist and Economic",
       description:
         "Metro Park Adigraha menghadirkan hunian modern Tipe 36/60, ideal untuk keluarga kecil, dengan 2 kamar tidur dan 1 kamar mandi. Lokasi strategis dekat pusat kota, keamanan 24 jam, sistem one gate, legalitas terjamin, serta bebas biaya BPHTB dan BBN, menjadikannya pilihan tepat untuk tempat tinggal atau investasi.",
       features: [
@@ -25,7 +25,7 @@ async function getPropertyData(slug: string): Promise<PropertyDetails | null> {
       specifications: {
         type: "Single Family(36/60)",
         area: "60 m²",
-        size: "34 m²",
+        size: "36 m²",
         bedrooms: 2,
         bathrooms: 1,
         carport: true,
@@ -33,21 +33,33 @@ async function getPropertyData(slug: string): Promise<PropertyDetails | null> {
       images: [
         {
           url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788306/type36-fasade_kjhfya.jpg?_s=public-apps",
-          alt: "Tampilan depan rumah Tipe 34/60",
+          alt: "Tampilan depan rumah Tipe 36/60",
+        },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788307/type36-livingroom_kjhfya.jpg?_s=public-apps",
+          alt: "Ruang tamu rumah Tipe 36/60",
+        },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788308/type36-bedroom_kjhfya.jpg?_s=public-apps",
+          alt: "Kamar tidur rumah Tipe 36/60",
         },
       ],
-      floorPlan:
-        "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788051/DENAH-34BANNER_eraytn.jpg?_s=public-apps",
+      floorPlans: [
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788051/DENAH-34BANNER_eraytn.jpg?_s=public-apps",
+          alt: "Denah lantai rumah Tipe 36/60",
+        },
+      ],
       price: "Rp 300 Jt-an",
       slug: "type-36-60",
     },
     {
       id: "type-63-72",
-      title: "Exclusive and cozy living",
+      title: "Exclusive and Cozy Living",
       description:
         "Metro Park Adigraha mempersembahkan hunian modern Tipe 63/72, sempurna untuk keluarga berkembang, dengan 3 kamar tidur dan 2 kamar mandi. Dengan lokasi strategis dekat pusat kota, keamanan 24 jam, sistem one gate, legalitas terjamin, dan bebas biaya BPHTB dan BBN, ini adalah pilihan yang sangat baik untuk tempat tinggal dan investasi.",
       features: [
-        "Arsitekture Modern",
+        "Arsitektur Modern",
         "Taman Pribadi",
         "Carport",
         "Fitur Keamanan",
@@ -66,9 +78,21 @@ async function getPropertyData(slug: string): Promise<PropertyDetails | null> {
           url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788294/fasadet63_rkuwum.jpg?_s=public-apps",
           alt: "Tampilan depan rumah Tipe 63/72",
         },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788295/livingroomt63_rkuwum.jpg?_s=public-apps",
+          alt: "Ruang tamu rumah Tipe 63/72",
+        },
       ],
-      floorPlan:
-        "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788052/denah-63banner-lt-1_ot1uhk.jpg?_s=public-apps",
+      floorPlans: [
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788052/denah-63banner-lt-1_ot1uhk.jpg?_s=public-apps",
+          alt: "Denah lantai satu rumah Tipe 63/72",
+        },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735892941/denah-63banner-lt-2_awop69.jpg?_s=public-apps",
+          alt: "Denah lantai dua rumah Tipe 63/72",
+        },
+      ],
       price: "Rp 600 Jt-an",
       slug: "type-63-72",
     },

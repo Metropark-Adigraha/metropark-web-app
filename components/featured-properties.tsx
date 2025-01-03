@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Building2, MapPin, Ruler, Heart, Share2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
+import { useRouter } from "next/navigation";
 
 interface Property {
   id: number;
@@ -44,6 +45,12 @@ const properties = [
 function PropertyCard({ property }: { property: Property }) {
   const [isLiked, setIsLiked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push(`/residence-type/${property.slug}`)
+  }
 
   return (
     <motion.div
@@ -118,7 +125,9 @@ function PropertyCard({ property }: { property: Property }) {
           transition={{ delay: 0.4 }}
           className="mt-6"
         >
-          <Button className="w-full group" style={{ borderColor: '#C89E30', color: '#C89E30' }}>
+          <Button 
+          onClick={handleRedirect}
+          className="w-full group" style={{ borderColor: '#C89E30', color: '#C89E30' }}>
             View Details
             <ExternalLink className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
           </Button>

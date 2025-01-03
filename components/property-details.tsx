@@ -2,9 +2,10 @@
 
 import { Bath, BedDouble, Car, Home, Ruler, Building } from 'lucide-react';
 import { motion } from "framer-motion";
+import { FloorPlanSlider } from '@/components/floor-plan-slider'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { PropertyDetails } from "@/lib/types";
-
+import {Dialog, DialogContent, DialogTrigger} from "@/components/ui/dialog"
 interface PropertyDetailsProps {
   property: PropertyDetails;
 }
@@ -23,6 +24,9 @@ const item = {
 };
 
 export default function PropertyDetails({ property }: PropertyDetailsProps) {
+
+  const firstFloorPlan = property.floorPlans[0]
+
   return (
     <motion.div
       variants={container}
@@ -177,27 +181,34 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
         </motion.div>
 
         <motion.div variants={item} className="space-y-4">
-          <motion.h2 
-            variants={item}
-            className="text-2xl font-semibold text-satin-gold-100"
-          >
-            Denah Lantai
-          </motion.h2>
-          <motion.div variants={item}>
-            <Card className="overflow-hidden border-2 border-satin-gold-200/20 bg-satin-gold-900/50 backdrop-blur-sm">
-              <CardContent className="p-0">
-                <div className="relative aspect-[2/1.7] w-full">
-                  <img
-                    src={property.floorPlan}
-                    alt="Denah lantai"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+        <motion.h2 
+          variants={item}
+          className="text-2xl font-semibold text-satin-gold-100"
+        >
+          Denah Lantai
+        </motion.h2>
+        <Dialog>
+      <DialogTrigger asChild>
+        <motion.div variants={item} className="cursor-pointer">
+          <Card className="overflow-hidden border-2 border-satin-gold-200/20 bg-satin-gold-900/50 backdrop-blur-sm">
+            <CardContent className="p-4 bg-white flex justify-center items-center">
+              <img
+                src={firstFloorPlan.url}
+                alt="Denah lantai"
+                className="object-contain w-full h-40"
+              />
+            </CardContent>
+          </Card>
         </motion.div>
+      </DialogTrigger>
+      <DialogContent className="max-w-4xl">
+        <FloorPlanSlider floorPlans={property.floorPlans} />
+      </DialogContent>
+    </Dialog>
+      </motion.div>
+
       </div>
     </motion.div>
   );
 }
+

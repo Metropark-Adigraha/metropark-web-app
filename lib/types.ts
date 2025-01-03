@@ -32,7 +32,7 @@ export type PropertyImage = {
       carport: boolean
     }
     images: PropertyImage[]
-    floorPlan: string
+    floorPlans: any[]
     price: string
     slug: string
   }
