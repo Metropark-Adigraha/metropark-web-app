@@ -36,12 +36,28 @@ async function getPropertyData(slug: string): Promise<PropertyDetails | null> {
           alt: "Tampilan depan rumah Tipe 36/60",
         },
         {
-          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788307/type36-livingroom_kjhfya.jpg?_s=public-apps",
-          alt: "Ruang tamu rumah Tipe 36/60",
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735956085/IMG_8350_rvu78e.jpg?_s=public-apps",
+          alt: "Tampilan depan rumah Tipe 36/60",
         },
         {
-          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788308/type36-bedroom_kjhfya.jpg?_s=public-apps",
-          alt: "Kamar tidur rumah Tipe 36/60",
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735956040/WhatsApp_Image_2025-01-02_at_08.45.41_46385310_rbf206.jpg?_s=public-apps",
+          alt: "Tampilan depan rumah Tipe 36/60",
+        },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735970206/WhatsApp_Image_2025-01-04_at_12.55.22_f6254c92_o89xek.jpg?_s=public-apps",
+          alt: "Tampilan dalam rumah Tipe 36/60",
+        },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735970206/WhatsApp_Image_2025-01-04_at_12.55.22_c719e468_dahgtw.jpg?_s=public-apps",
+          alt: "Tampilan dalam rumah Tipe 36/60",
+        },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735970206/WhatsApp_Image_2025-01-04_at_12.55.21_8ee4aa5f_jlxjdc.jpg?_s=public-apps",
+          alt: "Tampilan dalam rumah Tipe 36/60",
+        },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735970207/WhatsApp_Image_2025-01-04_at_12.55.22_3ccc2327_xrksej.jpg?_s=public-apps",
+          alt: "Tampilan dalam rumah Tipe 36/60",
         },
       ],
       floorPlans: [
@@ -66,7 +82,7 @@ async function getPropertyData(slug: string): Promise<PropertyDetails | null> {
         "Ruang Terbuka",
       ],
       specifications: {
-        type: "Single Family",
+        type: "Big Family(63/72)",
         area: "72 m²",
         size: "63 m²",
         bedrooms: 3,
@@ -79,8 +95,12 @@ async function getPropertyData(slug: string): Promise<PropertyDetails | null> {
           alt: "Tampilan depan rumah Tipe 63/72",
         },
         {
-          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735788295/livingroomt63_rkuwum.jpg?_s=public-apps",
-          alt: "Ruang tamu rumah Tipe 63/72",
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735956035/IMG_8108_vpmhty.jpg?_s=public-apps",
+          alt: "Tampilan depan rumah Tipe 63/72",
+        },
+        {
+          url: "https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735955961/WhatsApp_Image_2025-01-02_at_08.44.36_4c792127_zcpufx.jpg?_s=public-apps",
+          alt: "Tampilan depan rumah Tipe 63/72",
         },
       ],
       floorPlans: [

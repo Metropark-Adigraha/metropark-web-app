@@ -45,6 +45,10 @@ export function Navbar() {
     { label: "Hubungi Kami", href: "/contact" },
   ];
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -140,6 +144,7 @@ export function Navbar() {
                     <Button
                       variant="ghost"
                       className="w-full justify-start text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20"
+                      onClick={closeMobileMenu}
                     >
                       {label}
                     </Button>
@@ -152,6 +157,7 @@ export function Navbar() {
                         <Button
                           variant="ghost"
                           className="w-full justify-between text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20"
+                          onClick={closeMobileMenu}
                         >
                           Properti
                           <ChevronDown className="h-4 w-4 ml-2" />
@@ -168,6 +174,7 @@ export function Navbar() {
                         <Link 
                           href={`/residence-type/${property.slug}`} 
                           className="w-full text-satin-gold-200 hover:text-satin-gold-100 hover:bg-satin-gold-600/50 focus:bg-satin-gold-600/50 focus:text-satin-gold-100"
+                          onClick={closeMobileMenu}
                         >
                           <motion.div
                             initial={{ opacity: 0, y: -10 }}
