@@ -74,37 +74,6 @@ export const metadata: Metadata = {
     "real estate Malang",
   ],
   publisher: "Metropark Adigraha",
-  openGraph: {
-    type: "website",
-    url: "https://www.metroparkadigraha.com",
-    title: "Metropark Adigraha - Perumahan Modern di Bandulan, Malang",
-    description:
-      "Temukan hunian modern di Metropark Adigraha, Bandulan, Malang. Perumahan strategis dengan fasilitas lengkap, nyaman untuk keluarga dan ideal untuk investasi properti.",
-    images: [
-      {
-        url: "/og-image.jpg", // Replace with an actual image file in your public directory
-        width: 1200,
-        height: 630,
-        alt: "Metropark Adigraha Perumahan Modern di Bandulan Malang",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Metropark Adigraha - Perumahan Modern di Bandulan, Malang",
-    description:
-      "Metropark Adigraha adalah perumahan modern yang menawarkan hunian nyaman di Bandulan, Malang. Lokasi strategis, cocok untuk keluarga dan investasi.",
-    images: ["/og-image.jpg"], // Replace with your image URL
-  },
-  robots: "index, follow",
-  viewport: "width=device-width, initial-scale=1.0",
-  alternates: {
-    canonical: "https://www.metroparkadigraha.com",
-    languages: {
-      id: "https://www.metroparkadigraha.com/id",
-      en: "https://www.metroparkadigraha.com/en",
-    },
-  },
 };
 
 export default function RootLayout({

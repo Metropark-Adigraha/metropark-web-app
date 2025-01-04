@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, Menu, X, ChevronDown } from 'lucide-react';
+import { Home, Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
@@ -58,10 +58,13 @@ export function Navbar() {
       }`}
     >
       <nav className="container px-4 mx-auto flex items-center justify-between">
-        <div className="flex items-center space-x-2 text-satin-gold-500">
-          <Home className="h-6 w-6" />
-          <span className="text-xl font-bold">Metropark Adigraha</span>
-        </div>
+      <div className="flex items-center">
+  <img
+    src="https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735973496/logo_transparent_gx2idw.jpg?_s=public-apps"
+    alt="Metropark Adigraha logo"
+    className="h-14 w-auto" 
+  />
+</div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
@@ -89,14 +92,14 @@ export function Navbar() {
                 </Link>
               </div>
             </DropdownMenuTrigger>
-            <DropdownMenuContent 
-              className="w-[150px] bg-satin-gold-700 backdrop-blur-md border-none" 
+            <DropdownMenuContent
+              className="w-[150px] bg-satin-gold-700 backdrop-blur-md border-none"
               align="end"
             >
               {properties.map((property) => (
                 <DropdownMenuItem key={property.id} asChild>
-                  <Link 
-                    href={`/residence-type/${property.slug}`} 
+                  <Link
+                    href={`/residence-type/${property.slug}`}
                     className="w-full text-satin-gold-200 hover:text-satin-gold-100 hover:bg-satin-gold-600/50 focus:bg-satin-gold-600/50 focus:text-satin-gold-100"
                   >
                     <motion.div
@@ -165,14 +168,14 @@ export function Navbar() {
                       </Link>
                     </div>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent 
-                    className="w-full bg-satin-gold-700 backdrop-blur-md border-none" 
+                  <DropdownMenuContent
+                    className="w-full bg-satin-gold-700 backdrop-blur-md border-none"
                     align="start"
                   >
                     {properties.map((property) => (
                       <DropdownMenuItem key={property.id} asChild>
-                        <Link 
-                          href={`/residence-type/${property.slug}`} 
+                        <Link
+                          href={`/residence-type/${property.slug}`}
                           className="w-full text-satin-gold-200 hover:text-satin-gold-100 hover:bg-satin-gold-600/50 focus:bg-satin-gold-600/50 focus:text-satin-gold-100"
                           onClick={closeMobileMenu}
                         >
@@ -198,4 +201,3 @@ export function Navbar() {
     </header>
   );
 }
-
