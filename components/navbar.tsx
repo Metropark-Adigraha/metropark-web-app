@@ -41,7 +41,7 @@ export function Navbar() {
   const links = [
     { label: "Home", href: "/" },
     { label: "puppet", href: "/404" },
-    {label: "location", href:"/#lokasi"},
+    {label: "Lokasi", href:"/#lokasi"},
     { label: "Tentang Kami", href: "/about" },
     { label: "Hubungi Kami", href: "/contact" },
   ];
