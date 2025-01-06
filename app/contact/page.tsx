@@ -1,10 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from 'next/link';
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram, MessageSquare, MapPin, Phone, Mail, CreditCard, HandCoins } from 'lucide-react';
+import {
+  Facebook,
+  Instagram,
+  MessageSquare,
+  MapPin,
+  Phone,
+  Mail,
+  CreditCard,
+  HandCoins,
+} from "lucide-react";
 
 const container = {
   hidden: { opacity: 0 },
@@ -126,7 +135,7 @@ export default function ContactPage() {
                   <div className="flex items-center">
                     <Mail className="mr-2 h-5 w-5 text-satin-gold-200" />
                     <p className="text-satin-gold-200 font-medium">
-                      brawijayaadigraha@gmail.com
+                      marketingmetropark@gmail.com
                     </p>
                   </div>
                 </div>
@@ -158,4 +167,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

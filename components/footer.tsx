@@ -52,7 +52,7 @@ export function Footer() {
                 65146
               </p>
               <p className="mt-2">Phone: (+62) 812-3582-8179</p>
-              <p>Email: brawijayaadigraha@gmail.com</p>
+              <p>Email: marketingmetropark@gmail.com</p>
             </address>
           </div>
 
