@@ -1,16 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Facebook,
-  Instagram,
-  MessageSquare,
-  MapPin,
-  Phone,
-  Mail,
-} from "lucide-react";
+import { Facebook, Instagram, MessageSquare, MapPin, Phone, Mail, CreditCard, HandCoins } from 'lucide-react';
 
 const container = {
   hidden: { opacity: 0 },
@@ -28,6 +22,11 @@ const titleVariant = {
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const buttonVariant = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.4 } },
 };
 
 export default function ContactPage() {
@@ -139,7 +138,24 @@ export default function ContactPage() {
             </Card>
           </motion.div>
         </div>
+
+        <motion.div
+          variants={buttonVariant}
+          className="mt-12 flex justify-center"
+        >
+          <Link href="/payment-flow" passHref>
+            <Button
+              variant="default"
+              size="lg"
+              className="bg-satin-gold-700 text-satin-gold-200 hover:bg-satin-gold-600 transition-colors duration-300"
+            >
+              <HandCoins className="mr-2 h-5 w-5" />
+              Alur Pembayaran
+            </Button>
+          </Link>
+        </motion.div>
       </motion.div>
     </div>
   );
 }
+

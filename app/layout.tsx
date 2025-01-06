@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Metropark Adigraha",
+    "metropark adigraha",
     "perumahan Malang",
     "rumah modern Bandulan",
     "investasi properti Indonesia",
@@ -88,7 +89,6 @@ export default function RootLayout({
           <div className="absolute inset-0 z-0">
             <BackgroundPattern />
           </div>
-          {/* Navbar is properly placed here */}
           <Navbar />
           <div className="relative z-10">{children}</div>
         </div>

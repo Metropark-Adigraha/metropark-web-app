@@ -5,14 +5,16 @@ import { cn } from "@/lib/utils";
 
 export function AnimatedText({
   text,
+  imageSrc,
   className,
   once = true,
 }: {
-  text: string;
+  text?: string;
+  imageSrc?: string;
   className?: string;
   once?: boolean;
 }) {
-  const words = text.split(" ");
+  const words = text ? text.split(" ") : [];
 
   const container = {
     hidden: { opacity: 0 },
@@ -45,21 +47,26 @@ export function AnimatedText({
 
   return (
     <motion.div
-      className={cn("flex flex-wrap", className)}
+      className={cn("flex flex-wrap items-center justify-center", className)}
       variants={container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once }}
     >
-      {words.map((word, index) => (
-        <motion.span
+      {imageSrc ? (
+        <motion.img
+          src={imageSrc}
+          alt="Animated Content"
+          className="max-w-full h-auto"
           variants={child}
-          key={index}
-          className="mr-2"
-        >
-          {word}
-        </motion.span>
-      ))}
+        />
+      ) : (
+        words.map((word, index) => (
+          <motion.span variants={child} key={index} className="mr-2">
+            {word}
+          </motion.span>
+        ))
+      )}
     </motion.div>
   );
 }

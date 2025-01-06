@@ -40,8 +40,8 @@ export function Navbar() {
 
   const links = [
     { label: "Home", href: "/" },
-    { label: "Alur Pembayaran", href: "/payment-flow" },
-    { label: "Tentang", href: "/about" },
+    { label: "puppet", href: "/404" },
+    { label: "Tentang Kami", href: "/about" },
     { label: "Hubungi Kami", href: "/contact" },
   ];
 
@@ -58,64 +58,60 @@ export function Navbar() {
       }`}
     >
       <nav className="container px-4 mx-auto flex items-center justify-between">
-      <div className="flex items-center">
-  <img
-    src="https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735973496/logo_transparent_gx2idw.jpg?_s=public-apps"
-    alt="Metropark Adigraha logo"
-    className="h-14 w-auto" 
-  />
-</div>
+        <div className="flex items-center">
+          <img
+            src="https://res.cloudinary.com/dvvwmhgbq/image/upload/fl_preserve_transparency/v1735973496/logo_transparent_gx2idw.jpg?_s=public-apps"
+            alt="Metropark Adigraha logo"
+            className="h-14 w-auto"
+          />
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          {links.map(({ label, href }) => (
-            <Link key={href} href={href} passHref>
-              <Button
-                variant="ghost"
-                className="text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20"
-              >
-                {label}
-              </Button>
-            </Link>
-          ))}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <div className="relative">
-                <Link href="/residence-type" passHref>
-                  <Button
-                    variant="ghost"
-                    className="text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20 w-[150px] justify-between"
-                  >
-                    Properti
-                    <ChevronDown className="h-4 w-4 ml-2" />
-                  </Button>
-                </Link>
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className="w-[150px] bg-satin-gold-700 backdrop-blur-md border-none"
-              align="end"
-            >
-              {properties.map((property) => (
-                <DropdownMenuItem key={property.id} asChild>
-                  <Link
-                    href={`/residence-type/${property.slug}`}
-                    className="w-full text-satin-gold-200 hover:text-satin-gold-100 hover:bg-satin-gold-600/50 focus:bg-satin-gold-600/50 focus:text-satin-gold-100"
-                  >
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="w-full truncate"
+          {links.map(({ label, href }, index) => {
+            if (index === 1) {
+              // Properti Dropdown for Desktop
+              return (
+                <DropdownMenu key="properti">
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20 w-[150px] justify-between"
                     >
-                      {property.title}
-                    </motion.div>
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+                      Properti
+                      <ChevronDown className="h-4 w-4 ml-2" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent
+                    className="w-[150px] bg-satin-gold-100 backdrop-blur-md border-satin-gold-200"
+                    align="center"
+                  >
+                    {properties.map((property) => (
+                      <DropdownMenuItem key={property.id} asChild>
+                        <Link
+                          href={`/residence-type/${property.slug}`}
+                          className="w-full text-satin-gold-900 hover:text-satin-gold-700 hover:bg-satin-gold-200/50 focus:bg-satin-gold-200/50 focus:text-satin-gold-700"
+                        >
+                          {property.title}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              );
+            }
+            // Display regular links
+            return (
+              <Link key={label} href={href}>
+                <Button
+                  variant="ghost"
+                  className="text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20"
+                >
+                  {label}
+                </Button>
+              </Link>
+            );
+          })}
         </div>
 
         {/* Mobile Menu Button */}
@@ -153,20 +149,16 @@ export function Navbar() {
                     </Button>
                   </Link>
                 ))}
+
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <div className="relative w-full">
-                      <Link href="/residence-type" passHref>
-                        <Button
-                          variant="ghost"
-                          className="w-full justify-between text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20"
-                          onClick={closeMobileMenu}
-                        >
-                          Properti
-                          <ChevronDown className="h-4 w-4 ml-2" />
-                        </Button>
-                      </Link>
-                    </div>
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-between text-satin-gold-900 hover:text-satin-gold-300 hover:bg-satin-gold-200/20"
+                    >
+                      Properti
+                      <ChevronDown className="h-4 w-4 ml-2" />
+                    </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
                     className="w-full bg-satin-gold-700 backdrop-blur-md border-none"

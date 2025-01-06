@@ -188,7 +188,7 @@ export default function AboutPage() {
                       { name: "Yudhi Pradito", role: "Founder & CEO" },
                       { name: "Hanto Nugroho", role: "Head of Sales" },
                       { name: "Diego", role: "Head of Marketing" },
-                      { name: "Fata Wahid", role: "Software Developer" },
+                      { name: "Fata Wahid", role: "Marketing Communication Assistant" },
                     ].map((member, index) => (
                       <motion.div
                         key={index}

@@ -117,7 +117,7 @@ const StepCard = ({ step, index, isOpen, toggleOpen }: any) => {
     );
 };
 
-const HomePage = () => {
+const PaymentFlow = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const toggleOpen = (index: any) => {
@@ -163,5 +163,5 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default PaymentFlow;
 

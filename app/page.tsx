@@ -7,11 +7,17 @@ import FloatingButton from "@/components/floating-button";
 export default function Home() {
   return (
     <main>
-      <HeroSection />
-      <FeaturedProperties />
-      <MapPage/>
-      <Footer/>
-      <FloatingButton/>
+      <section id="home" key={"home"}>
+        <HeroSection />
+      </section>
+      <section id="properti" key={"properti"}>
+        <FeaturedProperties />
+      </section>
+      <section id="lokasi" key={"lokasi"}>
+        <MapPage />
+      </section>
+      <Footer />
+      <FloatingButton />
     </main>
   );
 }
