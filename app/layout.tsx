@@ -92,6 +92,7 @@ export default function RootLayout({
           </div>
           <Navbar />
           <div className="relative z-10">{children}</div>
+          <Analytics/>
         </div>
       </body>
     </html>
