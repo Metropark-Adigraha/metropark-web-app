@@ -17,6 +17,12 @@ export type PropertyImage = {
     url: string
     alt: string
   }
+
+export type Gallery = {
+  url: string
+  description: string
+  createdAt: string
+}
   
   export type PropertyDetails = {
     id: string

@@ -44,6 +44,7 @@ export function Navbar() {
     {label: "Lokasi", href:"/#lokasi"},
     { label: "Tentang Kami", href: "/about" },
     { label: "Hubungi Kami", href: "/contact" },
+    { label: "Galeri Kami", href: "/gallery" }
   ];
 
   const closeMobileMenu = () => {
