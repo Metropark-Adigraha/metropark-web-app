@@ -1,25 +1,30 @@
 import { getGallery } from "@/db/models/gallery";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
-    // const result = await getGallery()
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const page = Number.parseInt(searchParams.get("page") || "1", 10);
+  const limit = Number.parseInt(searchParams.get("limit") || "10", 10);
 
-    const result = [{
-        data: "tes",
-        1: 1
-    }]
+  try {
+    const { galleries, totalPages, currentPage } = await getGallery(
+      page,
+      limit
+    );
 
-    if(!result) {
-        return NextResponse.json({
-            data: "no data",
-            message: "fail to fetch galleries",
-            status: 400
-        })
-    }
+    console.log(galleries);
+    
 
     return NextResponse.json({
-        data: result,
-        message: "success fetch galleries",
-        status: 200
-    })
+      galleries,
+      totalPages,
+      currentPage,
+    });
+  } catch (error) {
+    console.error("Error fetching gallery:", error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
 }
